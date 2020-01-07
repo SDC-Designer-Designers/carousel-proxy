@@ -3,7 +3,7 @@
 	url = https://github.com/hrla33-falcons/Reviews
 [submodule "carousel-recommend-listings"]
 	path = carousel-recommend-listings
-	url = https://github.com/hrla33-falcons/carousel-recommend-listings
+	url = https://github.com/SDC-Designer-Designers/carousel
 [submodule "search-bar-booking-tool"]
 	path = search-bar-booking-tool
 	url = https://github.com/hrla33-falcons/search-bar-booking-tool

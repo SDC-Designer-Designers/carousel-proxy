@@ -6,7 +6,7 @@ const bodyParser = require('body-parser');
 
 const app = express();
 
-const PORT = 3003;
+const PORT = 3008;
 const axios = require('axios');
 const cors = require('cors');
 const morgan = require('morgan');
@@ -17,31 +17,40 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, '../client/dist')));
 
-app.get(`/mlistings/:id`, (req, res) => {
-    axios.get(`http://localhost:3000/mlistings/${req.params.id}`).then(data => res.status(200).send(data.data)).catch(err => res.status(404).send(err));
-});
+// app.get(`/mlistings/:id`, (req, res) => {
+//     axios.get(`http://localhost:3000/mlistings/${req.params.id}`).then(data => res.status(200).send(data.data)).catch(err => res.status(404).send(err));
+// });
 
-app.get(`/amenities/:id`, (req, res) => {
-    axios.get(`http://localhost:3001/amenities/${req.params.id}`)
-    .then((docs) => res.status(200).send(docs.data[0])).catch(err => res.status(404).send(err));
-});
+// app.get(`/amenities/:id`, (req, res) => {
+//     axios.get(`http://localhost:3001/amenities/${req.params.id}`)
+//     .then((docs) => res.status(200).send(docs.data[0])).catch(err => res.status(404).send(err));
+// });
 
-app.get(`/dates/:id`, (req, res) => {
-    axios.get(`http://localhost:3000/dates/${req.params.id}`).then(data => res.status(200).send(data.data)).catch(err => res.status(404).send(err));
-});
+// app.get(`/dates/:id`, (req, res) => {
+//     axios.get(`http://localhost:3000/dates/${req.params.id}`).then(data => res.status(200).send(data.data)).catch(err => res.status(404).send(err));
+// });
 
-app.get(`/listings/search`, (req, res) => {
-    axios.get(`http://localhost:3000/listings/search`, {
-        params: {query: req.query.query}
-      }).then(data => res.status(200).send(data.data)).catch(err => res.status(404).send(err));
-});
+// app.get(`/listings/search`, (req, res) => {
+//     axios.get(`http://localhost:3000/listings/search`, {
+//         params: {query: req.query.query}
+//       }).then(data => res.status(200).send(data.data)).catch(err => res.status(404).send(err));
+// });
 
-app.get(`/reviews/:id`, (req, res) => {
-    axios.get(`http://localhost:3004/reviews/${req.params.id}`).then(data => res.status(200).send(data)).catch(err => res.status(404).send(err));
-});
+// app.get(`/reviews/:id`, (req, res) => {
+//     axios.get(`http://localhost:3004/reviews/${req.params.id}`).then(data => res.status(200).send(data)).catch(err => res.status(404).send(err));
+// });
 
 app.get('/carousel-service/:id', (req, res) => {
-    axios.get(`http://localhost:3002/carousel-service/${req.params.id}`).then(data => res.status(200).send(data.data[0])).catch(err => res.status(404).send(err));
+    axios.get(`http://localhost:3005/carousel-service/${req.params.id}`).then(data => res.status(200).send(data.data[0])).catch(err => res.status(404).send(err));
+});
+app.post('/poster', (req, res) => {
+    axios.post(`http://localhost:3005/poster`).then(data => res.status(200).send(data.data[0])).catch(err => res.status(404).send(err));
+});
+app.put('/put', (req, res) => {
+    axios.put(`http://localhost:3005/put`).then(data => res.status(200).send(data.data[0])).catch(err => res.status(404).send(err));
+});
+app.delete('/delete', (req, res) => {
+    axios.delete(`http://localhost:3005/delete`).then(data => res.status(200).send(data.data[0])).catch(err => res.status(404).send(err));
 });
 
 // const servers = [

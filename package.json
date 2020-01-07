@@ -5,6 +5,10 @@
   "main": "index.js",
   "scripts": {
     "server": "nodemon ./server/index.js",
+    "stressGet": "ab -n 1000 -c  100 -k  http://localhost:3008/carousel-service/15",
+    "stressPost": "ab -p /Users/ariakesh/carousel/helpers/data.json -T application/json -c 100 -n 1000 http://localhost:3008/poster",
+    "stressPut": "ab -u /Users/ariakesh/carousel/helpers/data.json -T application/json -c 100 -n 1000 http://localhost:3008/put",
+    "stressDelete": "ab -m DELETE -c 100 -n 1000 http://localhost:3008/delete",
     "build": "webpack -w -d"
   },
   "repository": {

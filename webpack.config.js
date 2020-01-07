@@ -6,7 +6,7 @@ module.exports = {
       austin: path.resolve(__dirname, './search-bar-booking-tool/client/src'),
       kat: path.resolve(__dirname, './overview-amenities/client/src'),
       matthew: path.resolve(__dirname, './Reviews/client/src'),
-      steve: path.resolve(__dirname, './carousel-recommend-listings/src/components')
+      steve: path.resolve(__dirname, '/src/components')
   },
   output: {
       path: path.resolve(__dirname, './client/dist'),
